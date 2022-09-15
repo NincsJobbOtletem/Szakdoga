@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 118220404}
   - component: {fileID: 118220406}
   - component: {fileID: 118220405}
+  - component: {fileID: 118220407}
   m_Layer: 0
   m_Name: ResultsPanel
   m_TagString: Untagged
@@ -205,6 +206,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118220403}
   m_CullTransparentMesh: 1
+--- !u!114 &118220407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118220403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad4042f387bf5a469ca47313535e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1033465555}
+  cursorTexture: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
+  resultsPanel: {fileID: 118220403}
+  scoreText: {fileID: 128943322}
 --- !u!1 &124308089
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +371,7 @@ GameObject:
   - component: {fileID: 128943323}
   - component: {fileID: 128943322}
   m_Layer: 0
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,6 +979,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918479911}
   m_CullTransparentMesh: 1
+--- !u!1 &1033465555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 117386706127042206, guid: 95f23d47cbd736142ad29e0c4f3e47aa, type: 3}
+  m_PrefabInstance: {fileID: 3521208843902711823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056992624
 GameObject:
   m_ObjectHideFlags: 0
