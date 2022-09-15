@@ -48,11 +48,14 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         scoreText.text = "alma";
         if (Input.GetMouseButtonDown(0))
         {
             shotsFired += 1f;
         }
         Debug.Log(shotsFired);
+        
     }
 }

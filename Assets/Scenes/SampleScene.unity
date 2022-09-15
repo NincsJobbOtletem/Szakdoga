@@ -221,6 +221,7 @@ MonoBehaviour:
   target: {fileID: 1033465555}
   cursorTexture: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
   resultsPanel: {fileID: 118220403}
+  getReadyText: {fileID: 0}
   scoreText: {fileID: 128943322}
 --- !u!1 &124308089
 GameObject:
@@ -1471,7 +1472,7 @@ GameObject:
   - component: {fileID: 2056880073}
   - component: {fileID: 2056880072}
   m_Layer: 0
-  m_Name: Get Ready
+  m_Name: GetReadyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
