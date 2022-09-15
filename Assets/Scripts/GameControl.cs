@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
@@ -17,9 +19,7 @@ public class GameControl : MonoBehaviour
     [SerializeField]
     private GameObject resultsPanel;
 
-    [SerializeField]
-    private TextMesh scoreText,targetsHitText,shotsFiredText,accuracyText;
-
+    [SerializeField] TextMeshProUGUI scoreText;
     public static int score,targetsHit;
     
     private float shotsFired;
@@ -32,12 +32,13 @@ public class GameControl : MonoBehaviour
     
     void Start()
     {
+        score = 0;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = "alma";
     }
 }
