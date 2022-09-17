@@ -19,8 +19,14 @@ public class GameControl : MonoBehaviour
     [SerializeField]
     private GameObject resultsPanel;
 
-    [SerializeField]private Text getReadyText;
+    [SerializeField] TextMeshProUGUI getReadyText;
     [SerializeField] TextMeshProUGUI scoreText;
+
+    [SerializeField] TextMeshProUGUI targetsHitText;
+
+    [SerializeField] TextMeshProUGUI shotsFiredText;
+
+    [SerializeField] TextMeshProUGUI accuracyText;
     public static int score,targetsHit;
     
     private float shotsFired;
@@ -44,18 +50,50 @@ public class GameControl : MonoBehaviour
     targetsHit = 0;
     accuracy = 0f;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
-
-        scoreText.text = "alma";
+        //scoreText.text = "alma";
         if (Input.GetMouseButtonDown(0))
         {
             shotsFired += 1f;
-        }
-        Debug.Log(shotsFired);
-        
+        }    
     }
+    private IEnumerator GetReady(){
+        for (int i=3;i >= 1; i--)
+        {
+            getReadyText.text = "Get Ready!\n" + i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        getReadyText.text = "Go!";
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine("SpawnTargets");
+    }
+    private IEnumerator SpawnTargets(){
+        getReadyText.gameObject.SetActive(false);
+        score = 0;
+        shotsFired = 0;
+        targetsHit = 0;
+        accuracy = 0;
+        
+        for (int i = targetsAmount; i >= 0; i--){
+            targetRandomPosition = new Vector2(Random.Range(-7f, 7f), Random.Range(-4f, 4f));
+            Instantiate(target, targetRandomPosition, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        resultsPanel.SetActive(true);
+        scoreText.text = "Score: " + score;
+        targetsHitText.text = "Targets Hit: " + targetsHit + "/" + targetsAmount;
+        shotsFiredText.text = "Shots Fired: " + shotsFired;
+        accuracy = targetsHit / shotsFired * 100f;
+        accuracyText.text = "Accuracy: " + accuracy.ToString("N2") + "%";
+    }
+    public void StartGetReadyCoroutine(){
+    resultsPanel.SetActive(false);
+    getReadyText.gameObject.SetActive(true);
+    StartCoroutine("GetReady");
+
+    }
+
 }
