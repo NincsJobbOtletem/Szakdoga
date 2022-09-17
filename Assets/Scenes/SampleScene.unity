@@ -213,16 +213,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118220403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad4042f387bf5a469ca47313535e6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  cursorTexture: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
+  target: {fileID: 117386706127042206, guid: 95f23d47cbd736142ad29e0c4f3e47aa, type: 3}
+  cursorTexture: {fileID: 0}
   resultsPanel: {fileID: 118220403}
   getReadyText: {fileID: 0}
-  scoreText: {fileID: 128943322}
+  scoreText: {fileID: 0}
   targetsHitText: {fileID: 0}
   shotsFiredText: {fileID: 0}
   accuracyText: {fileID: 0}
@@ -584,13 +584,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 4ad4042f387bf5a469ca47313535e6af, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1056992626}
+        m_TargetAssemblyTypeName: GameControl, Assembly-CSharp
+        m_MethodName: StartGetReadyCoroutine
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -670,7 +670,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.8584906, g: 0.8433154, b: 0.5790762, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 117386706127042206, guid: 95f23d47cbd736142ad29e0c4f3e47aa, type: 3}
-  cursorTexture: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
+  cursorTexture: {fileID: 2800000, guid: 406539221150d3747bba872bff6fa578, type: 3}
   resultsPanel: {fileID: 118220403}
   getReadyText: {fileID: 2056880072}
   scoreText: {fileID: 128943322}

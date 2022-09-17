@@ -44,11 +44,12 @@ public class GameControl : MonoBehaviour
 
     getReadyText.gameObject.SetActive(false);
 
-    targetsAmount = 50;
+    targetsAmount = 5;
     score = 0;
     shotsFired = 0;
     targetsHit = 0;
     accuracy = 0f;
+    
     }
     // Update is called once per frame
     void Update()
