@@ -29,6 +29,7 @@ public class GameControl : MonoBehaviour
     [SerializeField] TextMeshProUGUI accuracyText;
     public static int score,targetsHit;
     
+    public static float finalTime;
     private float shotsFired;
     
     private float accuracy;
@@ -46,7 +47,7 @@ public class GameControl : MonoBehaviour
 
     getReadyText.gameObject.SetActive(false);
 
-    targetsAmount = 16;
+    targetsAmount = 3;
     score = 0;
     shotsFired = 0;
     targetsHit = 0;
@@ -61,7 +62,8 @@ public class GameControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             shotsFired += 1f;
-        }    
+        }
+            
     }
     private IEnumerator GetReady(){
         for (int i=3;i >= 1; i--)
@@ -89,19 +91,18 @@ public class GameControl : MonoBehaviour
             accuracy = targetsHit / shotsFired * 100f;
             if (accuracy <= 75){
                 timeReduceWhileTimeIsRunning *= 1.10f;
-                Debug.Log(accuracy);
-                Debug.Log(timeReduceWhileTimeIsRunning);
+                Debug.Log("Reflex=: "+finalTime);
             }
             else{
                 timeReduceWhileTimeIsRunning *= 0.95f;
-            
-                Debug.Log("accuracy" + accuracy);
-                Debug.Log("Uj target time" + timeReduceWhileTimeIsRunning);
+                Debug.Log("Reflex=: "+finalTime);
+                // Debug.Log("accuracy" + accuracy);
+                // Debug.Log("Uj target time" + timeReduceWhileTimeIsRunning);
             }
 
 
         }
-
+        Debug.Log("átlag ms reflex" + (finalTime/targetsHit*1000).ToString("N0"));
         resultsPanel.SetActive(true);
         scoreText.text = "Score: " + score;
         targetsHitText.text = "Targets Hit: " + targetsHit + "/" + targetsAmount;
