@@ -44,7 +44,7 @@ public class GameControl : MonoBehaviour
 
     getReadyText.gameObject.SetActive(false);
 
-    targetsAmount = 5;
+    targetsAmount = 20;
     score = 0;
     shotsFired = 0;
     targetsHit = 0;
