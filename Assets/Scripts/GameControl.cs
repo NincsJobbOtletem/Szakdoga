@@ -33,6 +33,8 @@ public class GameControl : MonoBehaviour
     
     private float accuracy;
 
+    private float timeReduceWhileTimeIsRunning;
+
     private int targetsAmount;
 
     private Vector2 targetRandomPosition;
@@ -44,7 +46,7 @@ public class GameControl : MonoBehaviour
 
     getReadyText.gameObject.SetActive(false);
 
-    targetsAmount = 20;
+    targetsAmount = 16;
     score = 0;
     shotsFired = 0;
     targetsHit = 0;
@@ -54,6 +56,7 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //scoreText.text = "alma";
         if (Input.GetMouseButtonDown(0))
         {
@@ -77,18 +80,35 @@ public class GameControl : MonoBehaviour
         shotsFired = 0;
         targetsHit = 0;
         accuracy = 0;
+        timeReduceWhileTimeIsRunning = 2f;
         
         for (int i = targetsAmount; i >= 0; i--){
             targetRandomPosition = new Vector2(Random.Range(-7f, 7f), Random.Range(-4f, 4f));
             Instantiate(target, targetRandomPosition, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timeReduceWhileTimeIsRunning);
+            accuracy = targetsHit / shotsFired * 100f;
+            if (accuracy <= 75){
+                timeReduceWhileTimeIsRunning *= 1.10f;
+                Debug.Log(accuracy);
+                Debug.Log(timeReduceWhileTimeIsRunning);
+            }
+            else{
+                timeReduceWhileTimeIsRunning *= 0.95f;
+            
+                Debug.Log("accuracy" + accuracy);
+                Debug.Log("Uj target time" + timeReduceWhileTimeIsRunning);
+            }
+
+
         }
+
         resultsPanel.SetActive(true);
         scoreText.text = "Score: " + score;
         targetsHitText.text = "Targets Hit: " + targetsHit + "/" + targetsAmount;
         shotsFiredText.text = "Shots Fired: " + shotsFired;
         accuracy = targetsHit / shotsFired * 100f;
         accuracyText.text = "Accuracy: " + accuracy.ToString("N2") + "%";
+        
     }
     public void StartGetReadyCoroutine(){
     resultsPanel.SetActive(false);
