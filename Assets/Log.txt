@@ -1,0 +1,21 @@
+Name: SIPHON
+
+
+ Result 
+ Shots Fired: 22 Accuracy: 27,27273 Score: 60
+-----------------------------------------------------------------------
+ Result 
+ Shots Fired: 6 Accuracy: 100 Score: 60
+-----------------------------------------------------------------------
+ Result 
+ Shots Fired: 6 Accuracy: 100,00 Targets Hit: 6/5Shots Fired: 6 Score: 60640
+-----------------------------------------------------------------------
+ Result 
+ Shots Fired: 6 Accuracy: 116,67 Targets Hit: 7/5Shots Fired: 6 Score: 60543
+-----------------------------------------------------------------------
+ Result 
+ Shots Fired: 6 Accuracy: 100,00 Targets Hit: 6/5Shots Fired: 6 Score: 60660
+-----------------------------------------------------------------------
+ Result 
+ Shots Fired: 4 Accuracy: 100,00 Targets Hit: 4/4Shots Fired: 4 Score: 40732
+-----------------------------------------------------------------------

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.IO;
 
 public class GameControl : MonoBehaviour
 {
     [SerializeField]
     private GameObject target;
-    // Start is called before the first frame update
+
     [SerializeField]
     private Texture2D cursorTexture;
 
@@ -27,6 +28,8 @@ public class GameControl : MonoBehaviour
     [SerializeField] TextMeshProUGUI shotsFiredText;
 
     [SerializeField] TextMeshProUGUI accuracyText;
+
+    [SerializeField] TextMeshProUGUI msText;
     public static int score,targetsHit;
     
     public static float finalTime;
@@ -40,8 +43,20 @@ public class GameControl : MonoBehaviour
 
     private Vector2 targetRandomPosition;
     
+    void CreateText(){
+        string path = Application.dataPath + "/Log.txt";
+        string content;
+        if(!File.Exists(path)){
+            File.WriteAllText(path,"Name: "+ SystemInfo.deviceName + "\n\n");
+        }
+        content = "\n Result \n" +" Shots Fired: "+shotsFired + " Accuracy: "+ accuracy.ToString("N2") +" Targets Hit: " + targetsHit + "/" + targetsAmount+"Shots Fired: " + shotsFired+" Score: "+score +(finalTime/targetsHit*1000).ToString("N0")+ "\n"+"-----------------------------------------------------------------------";
+
+        File.AppendAllText(path,content);
+    }
+
     void Start()
     {
+    
     cursorHotspot = new Vector2(cursorTexture.width /2, cursorTexture.height / 2);
     Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
 
@@ -66,7 +81,7 @@ public class GameControl : MonoBehaviour
             
     }
     private IEnumerator GetReady(){
-        for (int i=3;i >= 1; i--)
+        for (int i=5;i >= 1; i--)
         {
             getReadyText.text = "Get Ready!\n" + i.ToString();
             yield return new WaitForSeconds(1f);
@@ -101,7 +116,9 @@ public class GameControl : MonoBehaviour
             }
 
 
+
         }
+        targetsAmount++;
         Debug.Log("átlag ms reflex" + (finalTime/targetsHit*1000).ToString("N0"));
         resultsPanel.SetActive(true);
         scoreText.text = "Score: " + score;
@@ -109,6 +126,9 @@ public class GameControl : MonoBehaviour
         shotsFiredText.text = "Shots Fired: " + shotsFired;
         accuracy = targetsHit / shotsFired * 100f;
         accuracyText.text = "Accuracy: " + accuracy.ToString("N2") + "%";
+        msText.text = "MS: " + (finalTime/targetsHit*1000).ToString("N0");
+        
+        CreateText();
         
     }
     public void StartGetReadyCoroutine(){
