@@ -1,2 +1,2 @@
 # Szakdoga
- Gaming Képeségeket Fejlesztő App
+ Gaming Képeségeket Fejlesztő C# App
